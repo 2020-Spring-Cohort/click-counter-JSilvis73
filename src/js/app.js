@@ -28,9 +28,11 @@ class ClickCounter{
     }
 
     buyCompanion = function(){
+        if(this.clickCount >= this.companionCost){
         this.addCompanion();
         this.clickCount = this.clickCount - this.companionCost;
         this.companionCostIncrease()
+        }
     }
 
     companionCostIncrease = function () {

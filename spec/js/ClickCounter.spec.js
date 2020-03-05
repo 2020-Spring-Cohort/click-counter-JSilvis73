@@ -61,6 +61,15 @@ describe("Click Count Calamity", function() {
                 })
             })
 
+            describe('buyCompanion', function(){
+                it('buyCompanion should increase in cost after buyCompanion was clicked', function(){
+                    sut.clickCount = 90;
+                    sut.buyCompanion()
+                    expect(sut.companionNumber).toBe(0)
+
+                })
+            })
+
 
         })
 
