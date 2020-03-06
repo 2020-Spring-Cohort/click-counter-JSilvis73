@@ -96,6 +96,14 @@ describe("Click Count Calamity", function() {
                 })
             })
 
+            describe('compounderCost', function() {
+                it('should increase the cost of compounder', function() {
+                    sut.clickCount = 10;
+                    sut.buyCompounder();
+                    expect(sut.compounderCost).toBe(11)
+                })
+            })
+
         })
 
 

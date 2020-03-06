@@ -57,8 +57,15 @@ class ClickCounter {
     }
 
     buyCompounder = () => {
+        if(this.clickCount >= this.compounderCost){
         this.addCompounder();
         this.clickCount = this.clickCount - this.compounderCost;
+        this.compounderCostIncrease();
+        }
+    }
+
+    compounderCostIncrease = () => {
+        this.compounderCost = this.compounderCost + (this.compounderCost * 0.1)
     }
 
 }
