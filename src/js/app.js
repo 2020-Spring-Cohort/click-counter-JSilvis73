@@ -61,11 +61,11 @@ class ClickCounter {
     }
 
     buyCompounder = () => {
-        if(this.clickCount >= this.compounderCost){
-        this.addCompounder();
-        this.clickCount = this.clickCount - this.compounderCost;
-        this.compounderCostIncrease();
-        this.compounderMultiplyer();
+        if (this.clickCount >= this.compounderCost) {
+            this.addCompounder();
+            this.clickCount = this.clickCount - this.compounderCost;
+            this.compounderCostIncrease();
+            this.compounderMultiplyer();
         }
     }
 
@@ -79,7 +79,19 @@ class ClickCounter {
 
 
 
+
 }
 
 let mainCookieObject = new ClickCounter
 setInterval(mainCookieObject.companionClickCount(), 1000);
+
+const updateClickCount = (clickCountElement, clickCounterObject) => {
+    clickCountElement.innerText = clickCounterObject.getClickCount();
+}
+
+const makeClickActionButton = (clickActionElement, clickCountElement, clickCounterObject) => {
+        clickActionElement.addEventListener('click', () => {
+            clickCounterObject.clickAction();
+                updateClickCount(clickCountElement, clickCounterObject)
+                })
+        }
