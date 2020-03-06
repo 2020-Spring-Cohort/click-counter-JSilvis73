@@ -104,6 +104,24 @@ describe("Click Count Calamity", function() {
                 })
             })
 
+            describe('buyCompounder if you have enough clicks', function(){
+                it('should not allow you to buyCompounder if less than compounderCost', function(){
+                    sut.clickCount = 110;
+                    sut.buyCompounder()
+                    sut.buyCompounder()
+                    expect(sut.clickCount).toBe(89)
+                })
+            })
+
+            describe('compounder should increase click value', function() {
+                it('should increase clickValue by compounderNumber', function(){
+                    sut.clickCount = 10;
+                    sut.buyCompounder();
+                    sut.clickAction();
+                    expect(sut.getClickCount()).toBe(1.2)
+                })
+            })
+
         })
 
 

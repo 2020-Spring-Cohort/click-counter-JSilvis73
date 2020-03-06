@@ -6,12 +6,16 @@ class ClickCounter {
         this.companionCost = 100;
         this.compounderNumber = 0;
         this.compounderCost = 10;
+        this.clickValue = 1;
     }
 
     clickCount = 0;
+    clickValue;
+
+
 
     clickAction = function() {
-        this.clickCount++;
+        this.clickCount += this.clickValue;
 
     }
     getClickCount = function() {
@@ -61,12 +65,19 @@ class ClickCounter {
         this.addCompounder();
         this.clickCount = this.clickCount - this.compounderCost;
         this.compounderCostIncrease();
+        this.compounderMultiplyer();
         }
     }
 
     compounderCostIncrease = () => {
         this.compounderCost = this.compounderCost + (this.compounderCost * 0.1)
     }
+
+    compounderMultiplyer = () => {
+        this.clickValue = this.clickValue + (this.clickValue * .2)
+    }
+
+
 
 }
 
