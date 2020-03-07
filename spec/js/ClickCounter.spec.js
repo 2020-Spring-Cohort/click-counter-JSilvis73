@@ -4,10 +4,16 @@ describe("Click Count Calamity", function() {
 
 
         let sut;
+        let testClickCount;
+        let testClickAction;
+
 
         beforeEach(function() {
             sut = new ClickCounter();
             sut.clickCount = 0;
+            testClickAction = document.createElement('button');
+            testClickCount = document.createElement('div');
+
 
         })
 
@@ -96,10 +102,57 @@ describe("Click Count Calamity", function() {
                 })
             })
 
+            describe('compounderCost', function() {
+                it('should increase the cost of compounder', function() {
+                    sut.clickCount = 10;
+                    sut.buyCompounder();
+                    expect(sut.compounderCost).toBe(11)
+                })
+            })
+
+            describe('buyCompounder if you have enough clicks', function() {
+                it('should not allow you to buyCompounder if less than compounderCost', function() {
+                    sut.clickCount = 110;
+                    sut.buyCompounder()
+                    sut.buyCompounder()
+                    expect(sut.clickCount).toBe(89)
+                })
+            })
+
+            describe('compounder should increase click value', function() {
+                it('should increase clickValue by compounderNumber', function() {
+                    sut.clickCount = 10;
+                    sut.buyCompounder();
+                    sut.clickAction();
+                    expect(sut.getClickCount()).toBe(1.2)
+                })
+            })
+
         })
 
+        describe('DOM manipulation', function() {
+
+            describe('updateClickCount() - as the button is clicked, the innerText of the element reflects the ClickCount', () => {
+                it('Without clicking the clickCount should be 0', () => {
+                    updateClickCount(testClickCount, sut);
+                    expect(testClickCount.innerText).toBe('0');
+                })
 
 
 
+            })
+
+            describe('After clicking the clickCount should be 1', function() {
+                it('after clickAction is performed clickCount shoukd be 1', function(){
+                    sut.clickAction();
+                    updateClickCount(testClickCount, sut);
+                    expect(testClickCount.innerText).toBe('1');
+
+                })
+            })
+
+
+
+        })
     })
 })
