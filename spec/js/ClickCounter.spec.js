@@ -6,6 +6,10 @@ describe("Click Count Calamity", function() {
         let sut;
         let testClickCount;
         let testClickAction;
+        let testBuyCompanion;
+        let testCompanionNumber;
+        let testCompounderNumber;
+
 
 
         beforeEach(function() {
@@ -13,6 +17,12 @@ describe("Click Count Calamity", function() {
             sut.clickCount = 0;
             testClickAction = document.createElement('button');
             testClickCount = document.createElement('div');
+            testBuyCompanion = document.createElement('button')
+            testCompanionNumber = document.createElement('div')
+            testBuyCompunder = document.createElement('button');
+            textCompounderNumber = document.createElement('div');
+            makeClickActionButton(testClickAction, testClickCount, sut);
+            makeBuyCompanionButton(testBuyCompanion, testCompanionNumber, sut);
 
 
         })
@@ -143,13 +153,45 @@ describe("Click Count Calamity", function() {
             })
 
             describe('After clicking the clickCount should be 1', function() {
-                it('after clickAction is performed clickCount shoukd be 1', function(){
+                it('after clickAction is performed clickCount should be 1', function(){
                     sut.clickAction();
                     updateClickCount(testClickCount, sut);
                     expect(testClickCount.innerText).toBe('1');
 
                 })
             })
+
+            describe('makeClickActionButton() - creates a clickAction button out of the passed button, calls clickAction() one time when clicked.', () =>{
+                it('clicking once on the clickAction button will increase clickCount by 1', () =>{
+                    testClickAction.click();
+                    expect(sut.getClickCount()).toBe(1);
+                })
+            })
+
+            describe('updateCompanionNumber() - as the button is clicked the innerText of the element reflects the companionNumber', ()=>{
+                it('without clicking the companionNumbershould be 0', () => {
+                    updateCompanionNumber(testCompanionNumber, sut);
+                    expect(testCompanionNumber.innerText).toBe('0');
+                })
+            })
+
+
+             describe('make buyCompanionButton() - creates a buy companion button out of the passed button, calls buyCompanion() one time when clicked.', () => {
+                it('clicked once should increase companionNumber by 1', () =>{
+                    sut.clickCount = 110;
+                    testBuyCompanion.click();
+                    expect(sut.getCompanionNumber()).toBe(1)
+                })
+            }) 
+
+/*             describe('updateCompounderNumber() - as the button is clicked the innerText of the element reflects the compounderNumber', () =>{
+                it('without clicking the compunderNumber should be 0', () =>{
+                    updateCompounderNumber(testCompounderNumber, sut);
+                    expect(testCompounderNumber.innerText).toBe('0');
+                })
+            })  */
+
+
 
 
 

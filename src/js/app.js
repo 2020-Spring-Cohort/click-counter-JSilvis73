@@ -85,13 +85,33 @@ class ClickCounter {
 let mainCookieObject = new ClickCounter
 setInterval(mainCookieObject.companionClickCount(), 1000);
 
+
+
 const updateClickCount = (clickCountElement, clickCounterObject) => {
     clickCountElement.innerText = clickCounterObject.getClickCount();
 }
 
 const makeClickActionButton = (clickActionElement, clickCountElement, clickCounterObject) => {
-        clickActionElement.addEventListener('click', () => {
-            clickCounterObject.clickAction();
-                updateClickCount(clickCountElement, clickCounterObject)
-                })
-        }
+    clickActionElement.addEventListener('click', () => {
+        clickCounterObject.clickAction();
+        updateClickCount(clickCountElement, clickCounterObject)
+    })
+}
+
+
+
+const updateCompanionNumber = (companionNumberElement, clickCounterObject) => {
+    companionNumberElement.innerText = clickCounterObject.getCompanionNumber();
+}
+
+const makeBuyCompanionButton = (buyCompanionElement, companionNumberElement, clickCounterObject) => {
+    buyCompanionElement.addEventListener('click', () => {
+        clickCounterObject.buyCompanion();
+        updateCompanionNumber(companionNumberElement, clickCounterObject)
+    })
+}
+
+
+const updateCompounderNumber = (compounderNumberElement, clickCounterObject) => {
+    compounderNumberElement.innerText = clickCounterObject.getCompounderNumber();
+}
