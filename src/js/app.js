@@ -82,16 +82,51 @@ class ClickCounter {
 
 }
 
-let mainCookieObject = new ClickCounter
-setInterval(mainCookieObject.companionClickCount(), 1000);
+/* let mainCookieObject = new ClickCounter
+setInterval(mainCookieObject.companionClickCount(), 1000); */
+
+
 
 const updateClickCount = (clickCountElement, clickCounterObject) => {
     clickCountElement.innerText = clickCounterObject.getClickCount();
 }
 
 const makeClickActionButton = (clickActionElement, clickCountElement, clickCounterObject) => {
-        clickActionElement.addEventListener('click', () => {
-            clickCounterObject.clickAction();
-                updateClickCount(clickCountElement, clickCounterObject)
-                })
-        }
+    clickActionElement.addEventListener('click', () => {
+        clickCounterObject.clickAction();
+        updateClickCount(clickCountElement, clickCounterObject)
+    })
+}
+
+const updateCompanionNumber = (companionNumberElement, clickCounterObject) => {
+    companionNumberElement.innerText = clickCounterObject.getCompanionNumber();
+}
+
+const makeBuyCompanionButton = (buyCompanionElement, companionNumberElement, clickCounterObject) => {
+    buyCompanionElement.addEventListener('click', () => {
+        clickCounterObject.buyCompanion();
+        updateCompanionNumber(companionNumberElement, clickCounterObject)
+    })
+}
+
+
+
+
+/* const updateCompounderNumber = (compounderNumberElement, clickCounterObject) => {
+    compounderNumberElement.innerText = clickCounterObject.getCompounderNumber();
+} */
+
+//HTML setup
+const clickActionElement = document.querySelector(".click_Action");
+const clickCountElement = document.querySelector('.clickCount');
+const makeBuyCompanionElement = document.querySelector(".buyCompanion");
+const updateCompanionNumberElement = document.querySelector(".companionCount");
+
+
+
+const appCookie = new ClickCounter();
+
+makeClickActionButton(clickActionElement, clickCountElement, appCookie);
+updateClickCount(clickCountElement, appCookie);
+makeBuyCompanionButton(buyCompanionElement, companionNumberElement, appCookie);
+updateCompanionNumber(companionNumberElement, appCookie);
