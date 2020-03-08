@@ -82,8 +82,8 @@ class ClickCounter {
 
 }
 
-let mainCookieObject = new ClickCounter
-setInterval(mainCookieObject.companionClickCount(), 1000);
+/* let mainCookieObject = new ClickCounter
+setInterval(mainCookieObject.companionClickCount(), 1000); */
 
 
 
@@ -109,6 +109,9 @@ const makeBuyCompanionButton = (buyCompanionElement, companionNumberElement, cli
     })
 }
 
+
+
+
 /* const updateCompounderNumber = (compounderNumberElement, clickCounterObject) => {
     compounderNumberElement.innerText = clickCounterObject.getCompounderNumber();
 } */
@@ -118,6 +121,9 @@ const clickActionElement = document.querySelector(".click_Action");
 const clickCountElement = document.querySelector('.clickCount');
 const makeBuyCompanionElement = document.querySelector(".buyCompanion");
 const updateCompanionNumberElement = document.querySelector(".companionCount");
+
+
+
 const appCookie = new ClickCounter();
 
 makeClickActionButton(clickActionElement, clickCountElement, appCookie);

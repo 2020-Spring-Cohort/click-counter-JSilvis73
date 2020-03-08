@@ -1,14 +1,33 @@
+
+h1{
+    font-family: serif;
+    font-style: italic;
+    font-size: 250%;
+
+}
+
+html{
+    background: url(/src/Images/erol-ahmed-AmzKuEnr1VY-unsplash.jpg)
+}
+
 .dropbtn {
-    background-color: beige;
-    color: blue;
+    background-color: tan;
+    color: brown;
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
+    display: block;
+    position: relative;
+    margin-left: auto;
+
 }
 
-.dropbtn:hover, .dropbtn:focus {
-    background-color: burlywood;
+.dropdown {
+    position: relative;
+    display: inline-block;
+    
+
 }
 
 .dropdown-content {
@@ -19,3 +38,15 @@
     box-shadow: chocolate;
     z-index: 1;
 }
+
+.dropdown-content a{
+    color: brown;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
