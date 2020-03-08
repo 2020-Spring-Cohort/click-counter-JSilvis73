@@ -98,8 +98,6 @@ const makeClickActionButton = (clickActionElement, clickCountElement, clickCount
     })
 }
 
-
-
 const updateCompanionNumber = (companionNumberElement, clickCounterObject) => {
     companionNumberElement.innerText = clickCounterObject.getCompanionNumber();
 }
@@ -111,7 +109,18 @@ const makeBuyCompanionButton = (buyCompanionElement, companionNumberElement, cli
     })
 }
 
-
-const updateCompounderNumber = (compounderNumberElement, clickCounterObject) => {
+/* const updateCompounderNumber = (compounderNumberElement, clickCounterObject) => {
     compounderNumberElement.innerText = clickCounterObject.getCompounderNumber();
-}
+} */
+
+//HTML setup
+const clickActionElement = document.querySelector(".click_Action");
+const clickCountElement = document.querySelector('.clickCount');
+const makeBuyCompanionElement = document.querySelector(".buyCompanion");
+const updateCompanionNumberElement = document.querySelector(".companionCount");
+const appCookie = new ClickCounter();
+
+makeClickActionButton(clickActionElement, clickCountElement, appCookie);
+updateClickCount(clickCountElement, appCookie);
+makeBuyCompanionButton(buyCompanionElement, companionNumberElement, appCookie);
+updateCompanionNumber(companionNumberElement, appCookie);

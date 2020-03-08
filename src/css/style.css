@@ -1,0 +1,21 @@
+.dropbtn {
+    background-color: beige;
+    color: blue;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: burlywood;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: burlywood;
+    min-width: 160px;
+    box-shadow: chocolate;
+    z-index: 1;
+}

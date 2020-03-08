@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Module 4 Project</title>
+    <link rel = "stylesheet" type="text.css" href="style.css" />
 </head>
 <body>
+    <div class="dropdown">
+        <button onclick="dropdownmenu()"
+        class="dropbtn">More Info</button>
+        <div id="myDropDown" class="dropdown-content">
+            <a href="">Coo Coo Company</a>
+            <a href="">Our Inspiration</a>
+            <a href="">Development</a>
+        </div>
+    </div>
+    <br>
+
+    <div class="container">
+        <section class="click">
+            <div class="clickCount">Initial Clicks</div>
+            <button class="click_Action">CLICK!</button>
+        </section>
+        <br>
+        <section class="companion">
+            <div class="companionCount">Initial Companions</div>
+            <button class="buyCompanion">Buy Companion</button>
+        </section>
+    </div>
+
+
     <div class="container">
         <div class="anchor"></div>
     </div>
@@ -17,6 +42,6 @@
 
 
     
-    <script src="/src/app.js"></script>
+    <script src="/src/js/app.js"></script>
 </body>
 </html>
