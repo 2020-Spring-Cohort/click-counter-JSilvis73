@@ -46,6 +46,10 @@ html{
     display: block;
 }
 
+.dropdown-content a:hover{
+    color: cadetblue;
+}
+
 .dropdown:hover .dropdown-content{
     display: block;
 }
